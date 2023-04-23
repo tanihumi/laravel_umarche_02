@@ -3,5 +3,8 @@
 <x-slot name="header">ヘッダー２</x-slot>
 コンポーネント２
 
-<x-tests.card title="タイトル２" content="本文２"></x-tests.card>
+<x-test-class-base classBaseMessage="メッセージです2" />
+<br>
+<x-test-class-base classBaseMessage="メッセージです2" defaultMessage="変更"/>
+
 </x-tests.app>
