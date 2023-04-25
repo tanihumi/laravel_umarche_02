@@ -1,0 +1,78 @@
+
+  GET|HEAD  / ........................................................................................................................................................................ user.
+  GET|HEAD  _debugbar/assets/javascript ........................................................................................ debugbar.assets.js › Barryvdh\Debugbar › AssetController@js
+  GET|HEAD  _debugbar/assets/stylesheets ..................................................................................... debugbar.assets.css › Barryvdh\Debugbar › AssetController@css
+  DELETE    _debugbar/cache/{key}/{tags?} ............................................................................... debugbar.cache.delete › Barryvdh\Debugbar › CacheController@delete
+  GET|HEAD  _debugbar/clockwork/{id} .............................................................................. debugbar.clockwork › Barryvdh\Debugbar › OpenHandlerController@clockwork
+  GET|HEAD  _debugbar/open ......................................................................................... debugbar.openhandler › Barryvdh\Debugbar › OpenHandlerController@handle
+  POST      _ignition/execute-solution ....................................................................... ignition.executeSolution › Spatie\LaravelIgnition › ExecuteSolutionController
+  GET|HEAD  _ignition/health-check ................................................................................... ignition.healthCheck › Spatie\LaravelIgnition › HealthCheckController
+  POST      _ignition/update-config ................................................................................ ignition.updateConfig › Spatie\LaravelIgnition › UpdateConfigController
+  GET|HEAD  admin ................................................................................................................................................................... admin.
+  GET|HEAD  admin/confirm-password .................................................................................. admin.password.confirm › Admin\Auth\ConfirmablePasswordController@show
+  POST      admin/confirm-password ................................................................................................. admin. › Admin\Auth\ConfirmablePasswordController@store
+  GET|HEAD  admin/dashboard ................................................................................................................................................ admin.dashboard
+  POST      admin/email/verification-notification ....................................................... admin.verification.send › Admin\Auth\EmailVerificationNotificationController@store
+  GET|HEAD  admin/forgot-password ................................................................................... admin.password.request › Admin\Auth\PasswordResetLinkController@create
+  POST      admin/forgot-password ...................................................................................... admin.password.email › Admin\Auth\PasswordResetLinkController@store
+  GET|HEAD  admin/login ..................................................................................................... admin.login › Admin\Auth\AuthenticatedSessionController@create
+  POST      admin/login ........................................................................................................... admin. › Admin\Auth\AuthenticatedSessionController@store
+  POST      admin/logout .................................................................................................. admin.logout › Admin\Auth\AuthenticatedSessionController@destroy
+  PUT       admin/password .................................................................................................... admin.password.update › Admin\Auth\PasswordController@update
+  GET|HEAD  admin/profile ...................................................................................................................... admin.profile.edit › ProfileController@edit
+  PATCH     admin/profile .................................................................................................................. admin.profile.update › ProfileController@update
+  DELETE    admin/profile ................................................................................................................ admin.profile.destroy › ProfileController@destroy
+  GET|HEAD  admin/register ..................................................................................................... admin.register › Admin\Auth\RegisteredUserController@create
+  POST      admin/register .............................................................................................................. admin. › Admin\Auth\RegisteredUserController@store
+  POST      admin/reset-password ............................................................................................. admin.password.store › Admin\Auth\NewPasswordController@store
+  GET|HEAD  admin/reset-password/{token} .................................................................................... admin.password.reset › Admin\Auth\NewPasswordController@create
+  GET|HEAD  admin/verify-email .................................................................................... admin.verification.notice › Admin\Auth\EmailVerificationPromptController
+  GET|HEAD  admin/verify-email/{id}/{hash} .................................................................................... admin.verification.verify › Admin\Auth\VerifyEmailController
+  GET|HEAD  api/user ....................................................................................................................................................................... 
+  GET|HEAD  component-test1 ................................................................................................................. user. › ComponentTestController@showComponent1
+  GET|HEAD  component-test2 ................................................................................................................. user. › ComponentTestController@showComponent2
+  GET|HEAD  confirm-password .......................................................................................... user.password.confirm › User\Auth\ConfirmablePasswordController@show
+  POST      confirm-password ......................................................................................................... user. › User\Auth\ConfirmablePasswordController@store
+  GET|HEAD  dashboard ....................................................................................................................................................... user.dashboard
+  POST      email/verification-notification ............................................................... user.verification.send › User\Auth\EmailVerificationNotificationController@store
+  GET|HEAD  forgot-password ........................................................................................... user.password.request › User\Auth\PasswordResetLinkController@create
+  POST      forgot-password .............................................................................................. user.password.email › User\Auth\PasswordResetLinkController@store
+  GET|HEAD  login ............................................................................................................. user.login › User\Auth\AuthenticatedSessionController@create
+  POST      login ................................................................................................................... user. › User\Auth\AuthenticatedSessionController@store
+  POST      logout .......................................................................................................... user.logout › User\Auth\AuthenticatedSessionController@destroy
+  GET|HEAD  owner ................................................................................................................................................................... owner.
+  GET|HEAD  owner/confirm-password .................................................................................. owner.password.confirm › Owner\Auth\ConfirmablePasswordController@show
+  POST      owner/confirm-password ................................................................................................. owner. › Owner\Auth\ConfirmablePasswordController@store
+  GET|HEAD  owner/dashboard ................................................................................................................................................ owner.dashboard
+  POST      owner/email/verification-notification ....................................................... owner.verification.send › Owner\Auth\EmailVerificationNotificationController@store
+  GET|HEAD  owner/forgot-password ................................................................................... owner.password.request › Owner\Auth\PasswordResetLinkController@create
+  POST      owner/forgot-password ...................................................................................... owner.password.email › Owner\Auth\PasswordResetLinkController@store
+  GET|HEAD  owner/login ..................................................................................................... owner.login › Owner\Auth\AuthenticatedSessionController@create
+  POST      owner/login ........................................................................................................... owner. › Owner\Auth\AuthenticatedSessionController@store
+  POST      owner/logout .................................................................................................. owner.logout › Owner\Auth\AuthenticatedSessionController@destroy
+  PUT       owner/password .................................................................................................... owner.password.update › Owner\Auth\PasswordController@update
+  GET|HEAD  owner/profile ...................................................................................................................... owner.profile.edit › ProfileController@edit
+  PATCH     owner/profile .................................................................................................................. owner.profile.update › ProfileController@update
+  DELETE    owner/profile ................................................................................................................ owner.profile.destroy › ProfileController@destroy
+  GET|HEAD  owner/register ..................................................................................................... owner.register › Owner\Auth\RegisteredUserController@create
+  POST      owner/register .............................................................................................................. owner. › Owner\Auth\RegisteredUserController@store
+  POST      owner/reset-password ............................................................................................. owner.password.store › Owner\Auth\NewPasswordController@store
+  GET|HEAD  owner/reset-password/{token} .................................................................................... owner.password.reset › Owner\Auth\NewPasswordController@create
+  GET|HEAD  owner/verify-email .................................................................................... owner.verification.notice › Owner\Auth\EmailVerificationPromptController
+  GET|HEAD  owner/verify-email/{id}/{hash} .................................................................................... owner.verification.verify › Owner\Auth\VerifyEmailController
+  PUT       password ............................................................................................................ user.password.update › User\Auth\PasswordController@update
+  GET|HEAD  profile ............................................................................................................................. user.profile.edit › ProfileController@edit
+  PATCH     profile ......................................................................................................................... user.profile.update › ProfileController@update
+  DELETE    profile ....................................................................................................................... user.profile.destroy › ProfileController@destroy
+  GET|HEAD  register ............................................................................................................. user.register › User\Auth\RegisteredUserController@create
+  POST      register ...................................................................................................................... user. › User\Auth\RegisteredUserController@store
+  POST      reset-password ..................................................................................................... user.password.store › User\Auth\NewPasswordController@store
+  GET|HEAD  reset-password/{token} ............................................................................................ user.password.reset › User\Auth\NewPasswordController@create
+  GET|HEAD  sanctum/csrf-cookie .......................................................................................... sanctum.csrf-cookie › Laravel\Sanctum › CsrfCookieController@show
+  GET|HEAD  servicecontainer ...................................................................................................... user. › LifeCycleTestController@showServiceContainerTest
+  GET|HEAD  serviceprovider ........................................................................................................ user. › LifeCycleTestController@showServiceProviderTest
+  GET|HEAD  verify-email ............................................................................................ user.verification.notice › User\Auth\EmailVerificationPromptController
+  GET|HEAD  verify-email/{id}/{hash} ............................................................................................ user.verification.verify › User\Auth\VerifyEmailController
+
+                                                                                                                                                                         Showing [74] routes
+
