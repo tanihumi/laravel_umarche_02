@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Owner;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class OwnersController extends Controller
 {
@@ -50,7 +52,23 @@ class OwnersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.Owner::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        Owner::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+
+
+        return redirect()
+        ->route('admin.owners.index')
+        ->with('message', 'オーナー登録を実施しました');
     }
 
     /**
