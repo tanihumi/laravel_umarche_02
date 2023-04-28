@@ -31,6 +31,13 @@
         </div>
         <div class="p-2 w-1/2 mx-auto">
           <div class="relative">
+            <label for="email" class="leading-7 text-sm text-gray-600">ショップ</label>
+            <div required class="w-full bg-gray-100 bg-opacity-50 rounded   focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">{{ $owner->shop->name }}</div>
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+          </div>
+        </div>
+        <div class="p-2 w-1/2 mx-auto">
+          <div class="relative">
             <label for="email" class="leading-7 text-sm text-gray-600">メールアドレス</label>
             <input type="email" id="email" name="email"  value="{{ $owner->email }}" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
