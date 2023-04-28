@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Owner extends Authenticatable
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'name',
