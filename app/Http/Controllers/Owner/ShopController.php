@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
 use Illuminate\Support\Facades\Storage;
+use InterventionImage;
 
 class ShopController extends Controller
 {
@@ -42,6 +43,7 @@ class ShopController extends Controller
 
     public function index()
     {
+
         $ownerId = Auth::id();
         $shops = Shop::where('owner_id', $ownerId)->get();
 
@@ -61,7 +63,14 @@ class ShopController extends Controller
     {
         $imageFile = $request->image; //一時保存
         if(!is_null($imageFile) && $imageFile->isValid()) {
-            Storage::putFile('public/shops', $imageFile);
+            //Storage::putFile('public/shops', $imageFile);リサイズなし
+
+            $ﬁleName = uniqid(rand().'_');
+            $extension = $imageFile->extension();
+            $ﬁleNameToStore = $ﬁleName. '.' . $extension;
+            $resizedImage = InterventionImage::make($imageFile)->resize(1920, 1080)->encode();
+
+            Storage::put('public/shops/' . $ﬁleNameToStore, $resizedImage);
         }
 
         return redirect()->route('owner.shops.index');
