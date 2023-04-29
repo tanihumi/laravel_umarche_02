@@ -12,6 +12,8 @@ use Closure;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
+use Illuminate\Support\Facades\Storage;
+
 class ShopController extends Controller
 {
     public function __construct()
@@ -49,11 +51,20 @@ class ShopController extends Controller
 
     public function edit(string $id)
     {
+        $shop = Shop::findOrFail($id);
+
+        return view('owner.shops.edit', compact('shop'));
 
     }
 
     public function update(Request $request, string $id)
     {
+        $imageFile = $request->image; //一時保存
+        if(!is_null($imageFile) && $imageFile->isValid()) {
+            Storage::putFile('public/shops', $imageFile);
+        }
+
+        return redirect()->route('owner.shops.index');
 
     }
 }
