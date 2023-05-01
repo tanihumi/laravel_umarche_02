@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Storage;
 use InterventionImage;
 use App\Http\Requests\UploadImageRequest;
+use App\Services\ImageService;
 
 class ShopController extends Controller
 {
@@ -64,14 +65,7 @@ class ShopController extends Controller
     {
         $imageFile = $request->image; //一時保存
         if(!is_null($imageFile) && $imageFile->isValid()) {
-            //Storage::putFile('public/shops', $imageFile);リサイズなし
-
-            $ﬁleName = uniqid(rand().'_');
-            $extension = $imageFile->extension();
-            $ﬁleNameToStore = $ﬁleName. '.' . $extension;
-            $resizedImage = InterventionImage::make($imageFile)->resize(1920, 1080)->encode();
-
-            Storage::put('public/shops/' . $ﬁleNameToStore, $resizedImage);
+            $fileNameToStore = ImageService::upload($imageFile, 'shops');
         }
 
         return redirect()->route('owner.shops.index');
