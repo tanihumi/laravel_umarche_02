@@ -14,6 +14,7 @@ use App\Http\Controllers\Owner\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Owner\ShopController;
+use App\Http\Controllers\Owner\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,10 @@ middleware('auth:owners')->group(function () {
     Route::get('edit/{shop}', [ShopController::class, 'edit'])->name('shops.edit');
     Route::post('update/{shop}', [ShopController::class, 'update'])->name('shops.update');
 });
+
+
+Route::resource('images', ImageController::class)
+->middleware(['auth:owner', 'verified'])->except(['show']);
 
 
 Route::get('/dashboard', function () {
