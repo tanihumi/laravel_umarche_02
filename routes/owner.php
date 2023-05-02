@@ -41,7 +41,7 @@ middleware('auth:owners')->group(function () {
 
 
 Route::resource('images', ImageController::class)
-->middleware(['auth:owner', 'verified'])->except(['show']);
+->middleware(['auth:owners', 'verified'])->except(['show']);
 
 
 Route::get('/dashboard', function () {
