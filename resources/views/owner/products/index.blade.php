@@ -15,19 +15,19 @@
                 </div> 
                 <div class="flex flex-wrap">
                     @foreach ($ownerInfo as $owner )
-                      @foreach ($owner->shop->product as $product)
+                    @foreach ($owner->shop->product as $product)
                     <div class="w-1/4 md:p-4 p-2">
                     <a href="{{ route('owner.products.edit', ['product' => $product->id]) }}">
                         <div class="border rounded-md md:p-4 p-2">
-                            <x-thumbnail :filename='$product->imageFirst->filename' type="products" />
-                            {{-- <div class="text-gray-700">{{ $product->name }}</div> --}}
+                            <x-thumbnail filename="{{ $product->imageFirst->filename ?? '' }}" type="products" />
+                            <div class="text-gray-700">{{ $product->name }}</div> 
                         </div>
                     </a>   
                     </div>
                     @endforeach
                     @endforeach
                 </div>    
-                  
+
                 </div>
             </div>
         </div>

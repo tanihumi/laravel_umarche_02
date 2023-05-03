@@ -34,7 +34,7 @@
                         <div class="relative">
                             <label for="price" class="leading-7 text-sm text-gray-600">価格</label>
                             <input type="number" id="price" name="price"  value="{{ old('price') }}" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('price')" class="mt-2" />
                         </div>
                     </div>
 
@@ -42,7 +42,7 @@
                         <div class="relative">
                             <label for="sort_order" class="leading-7 text-sm text-gray-600">表示順</label>
                             <input type="number" id="sort_order" name="sort_order"  value="{{ old('sort_order') }}"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('sort_order')" class="mt-2" />
                         </div>
                     </div>
 
@@ -50,7 +50,7 @@
                         <div class="relative">
                             <label for="quantity" class="leading-7 text-sm text-gray-600">初期在庫</label>
                             <input type="quantity" id="quantity" name="quantity"  value="{{ old('quantity') }}" required  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('quantity')" class="mt-2" />
                         </div>
                     </div>
 
