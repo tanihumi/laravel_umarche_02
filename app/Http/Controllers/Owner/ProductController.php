@@ -167,25 +167,25 @@ class ProductController extends Controller
             try {
                 DB::transaction(function () use ($request, $product) {
 
-                        $product->name = $request->name;
-                        $product->information = $request->information;
-                        $product->price = $request->price;
-                        $product->sort_order = $request->sort_order;
-                        $product->shop_id = $request->shop_id;
-                        $product->secondary_category_id = $request->category;
-                        $product->image1 = $request->image1;
-                        $product->image2 = $request->image2;
-                        $product->image3 = $request->image3;
-                        $product->image4 = $request->image4;
-                        $product->is_selling = $request->is_selling;
-                        $product->save();
+                    $product->name = $request->name;
+                    $product->information = $request->information;
+                    $product->price = $request->price;
+                    $product->sort_order = $request->sort_order;
+                    $product->shop_id = $request->shop_id;
+                    $product->secondary_category_id = $request->category;
+                    $product->image1 = $request->image1;
+                    $product->image2 = $request->image2;
+                    $product->image3 = $request->image3;
+                    $product->image4 = $request->image4;
+                    $product->is_selling = $request->is_selling;
+                    $product->save();
 
-                    if($request->type === '1'){
+                    if($request->type === \Constant::PRODUCT_LIST['add']) {
                         $newQuantity = $request->quantity;
                     }
-                    if($request->type === '2'){
+                    if($request->type === \Constant::PRODUCT_LIST['reduce']) {
                         $newQuantity = $request->quantity * -1;
-                    }    
+                    }
 
                     Stock::create([
                         'product_id' => $product->id,
