@@ -11,6 +11,7 @@ use Closure;
 use App\Http\Requests\UploadImageRequest;
 use App\Services\ImageService;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Product;
 
 class ImageController extends Controller
 {
@@ -107,7 +108,40 @@ class ImageController extends Controller
     public function destroy(string $id)
     {
         $image = Image::findOrFail($id);
+
+        $imageInProducts = Product::where('image1', $image->id)
+        ->orWhere('image2', $image->id)
+        ->orWhere('image3', $image->id)
+        ->orWhere('image4', $image->id)
+        ->get();
+
+        if($imageInProducts) {
+
+            $imageInProducts->each(function ($product) use ($image) {
+
+                if($product->image1 === $image->id) {
+                    $product->image1 = null;
+                    $product->save();
+                }
+                if($product->image2 === $image->id) {
+                    $product->image2 = null;
+                    $product->save();
+                }
+                if($product->image3 === $image->id) {
+                    $product->image3 = null;
+                    $product->save();
+                }
+                if($product->image4 === $image->id) {
+                    $product->image4 = null;
+                    $product->save();
+                }
+
+            });
+        }
+
         $filePath = 'public/products/' . $image->filename;
+
+
 
         if(Storage::exists($filePath)) {
             Storage::delete($filePath);
