@@ -14,7 +14,7 @@
 
                     @foreach ($products as $product)
                     <div class="w-1/4 md:p-4 p-2">
-                    <a href="">
+                    <a href="{{ route('user.items.show', ['item' => $product->id]) }}">
                         <div class="border rounded-md md:p-4 p-2">
                             <x-thumbnail filename="{{ $product->filename ?? '' }}" type="products" />
 
