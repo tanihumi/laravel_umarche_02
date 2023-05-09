@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Admin\OwnersController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,9 +26,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.welcome');
+// Route::get('/', function () {
+//     return view('admin.welcome');
+// });
+
+
+Route::resource('owners', OwnersController::class)
+->middleware(['auth:admin', 'verified'])->except(['show']);
+
+
+
+Route::prefix('expired-owners')->
+middleware('auth:admin')->group(function () {
+    Route::get('index', [OwnersController::class, 'expiredOwnerIndex'])->name('expired-owners.index');
+    Route::post('destroy/{owner}', [OwnersController::class, 'expiredOwnerDestroy'])->name('expired-owners.destroy');
 });
+
+
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
