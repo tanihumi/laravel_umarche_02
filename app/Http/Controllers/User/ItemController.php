@@ -12,6 +12,7 @@ use Closure;
 use App\Models\PrimaryCategory;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestMail;
+use App\Jobs\SendThanksMail;
 
 
 class ItemController extends Controller
@@ -39,8 +40,10 @@ class ItemController extends Controller
     {
 
         // dd($request);
-        Mail::to('mailtest@example.com')
-            ->send(new TestMail());
+        // Mail::to('mailtest@example.com')
+        //     ->send(new TestMail());
+
+        SendThanksMail::dispatch();
 
         $categories = PrimaryCategory::with('secondary')
             ->get();
