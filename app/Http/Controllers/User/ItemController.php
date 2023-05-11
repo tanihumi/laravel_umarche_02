@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Stock;
 use Closure;
 use App\Models\PrimaryCategory;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
+
 
 class ItemController extends Controller
 {
@@ -36,6 +39,8 @@ class ItemController extends Controller
     {
 
         // dd($request);
+        Mail::to('mailtest@example.com')
+            ->send(new TestMail());
 
         $categories = PrimaryCategory::with('secondary')
             ->get();
