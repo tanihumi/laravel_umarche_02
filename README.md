@@ -1,4 +1,4 @@
-## udemy Laravel 講座
+udemy Laravel 講座
 
 ##ダウウンロード方法
 
@@ -58,3 +58,21 @@ storage/app/public/products フォルダ内に
 ショップの画像も表示する場合は、
 storage/app/public/shops フォルダを作成し
 画像を保存してください。
+
+##section7 の補足
+
+決済のテストとして stripe を利用しています。
+
+必要な場合は、.env に stripe の情報を追記してください。
+
+##section8 の補足
+
+メールのテストとして mailtrap を利用しています。
+
+必要な場合は、.env に mailtrap の情報を追記してください。
+
+メール処理に時間がかかるので、キューを使用しています。
+
+必要な場合は php artisan queue:work で
+
+ワーカーを立ち上げて確認してください。
