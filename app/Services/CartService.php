@@ -12,15 +12,15 @@ class CartService
     $products = [];
 
     foreach ($items as $item) {
-      $p = Product::ﬁndOrFail($item->product_id);
-      $owner = $p->shop->owner->select('name', 'email')->ﬁrst()->toArray(); //オーナー情報 
+      $p = Product::findOrFail($item->product_id);
+      $owner = $p->shop->owner->select('name', 'email')->first()->toArray(); //オーナー情報 
       $values = array_values($owner); //連想配列の値を取得 
       $keys = ['ownerName', 'email'];
       $ownerInfo = array_combine($keys, $values); // オーナー情報のキーを変更 
 
       $product = Product::where('id', $item->product_id)
         ->select('id', 'name', 'price')->get()->toArray(); // 商品情報の配列 
-        
+
       $quantity = Cart::where('product_id', $item->product_id)
         ->select('quantity')->get()->toArray(); // 在庫数の配列 
 
